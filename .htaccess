@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^(.*)$ public/$1 [L]
+  php_value xdebug.remote_enable 1
+  php_value xdebug.remote_host 127.0.0.1
+  php_value xdebug.remote_port 9000
+  php_value xdebug.idekey PHPSTORM
+  php_value xdebug.remote_autostart 1
+</IfModule>
