@@ -55,22 +55,19 @@
                 </a>
             </div>
             <!-- search form -->
-            <div class="col-sm-5 col-md-5">
-                <form action="{{url('/admin/search/result')}}" method="get" autocomplete="off" class="navbar-form">
+            <div class="nav-item col-sm-4 col-md-4 pull-left" style = "max-width: 250px; height: 50px; margin-top: 10px;">
+                <form action="{{url('/admin/search/result')}}" method="get" autocomplete="off" class="margin-r-5">
                     <div class="input-group">
                         <input id="search" name="search" type="text" class="form-control" placeholder="Live Search....">
                         <span class="input-group-btn">
                         <button type="submit" value="" class="btn btn-flat" style="background-color: #ebeff4;"><i
-                                    class="fa fa-search"></i></button>
-                    </span>
+                                class="fa fa-search"></i></button>
+                        </span>
                     </div>
                 </form>
             </div>
-
-
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
-
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{asset('storage/adminlte/dist/img/user2-160x160.jpg')}}" class="user-image"

@@ -10,8 +10,10 @@
                             @foreach($attributes as $attr)
                                 @if($attr->attr_group_id == $group->id)
                                     <div class="form-check">
-                                        {{ Form::checkbox("attrs[]", $attr->id, in_array($attr->id,$attrs),['class' => 'form-check-input', 'id' => 'box'.$attr->id])}}
-                                        <label class="form-check-label" for="box{{$attr->id}}" >{{$attr->value}}</label>
+                                        <label class="form-check-label" for="box{{$attr->id}}" >
+                                            {{ Form::checkbox("attrs[]", $attr->id, in_array($attr->id,$attrs),['class' => 'form-check-input', 'id' => 'box'.$attr->id])}}
+                                            {{$attr->value}}
+                                        </label>
                                     </div>
                                 @endif
                             @endforeach

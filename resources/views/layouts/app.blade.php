@@ -18,8 +18,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{--   Bootstrap 4 --}}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     {{--   Fancybox gallery --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -116,7 +116,6 @@
         </div>
     </nav>
 </div>
-</nav>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <main id="app">
@@ -124,7 +123,6 @@
     </main>
 </div>
 <!-- /.content-wrapper -->
-</div>
 <footer class="footerapp text-center">
     <div class="page-footer">
         <nav class="footer">
@@ -139,13 +137,17 @@
 </footer>
 <!-- Scripts -->
 
-<script src="{{asset('js/jquery.js')}}"></script>
-<script src="{{asset('js/popper.min.js')}}"></script>
+{{--<script src="{{asset('js/jquery.js')}}"></script>--}}
+{{--<script src="{{asset('js/popper.min.js')}}"></script>--}}
 {{--Bootstrap 3,4 Typeahead--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
-
 {{--Bootstrap 4 JS--}}
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
 <!-- App -->
 <script src="{{asset('js/app_main.js')}}"></script>

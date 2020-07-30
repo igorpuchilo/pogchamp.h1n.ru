@@ -406,7 +406,16 @@ main h2 {
   box-shadow: none;
 }
 
+.category-filter .form-check-input {
+  margin-top: 0.4rem;
+}
+
 .cart {
   margin-top: 60px;
+}
+
+.card-img-top {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 

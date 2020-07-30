@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="col-md-12">
+            <div class="col-lg-12 col-xs-12">
                 @include('shop.admin.main.include.orders')
                 @include('shop.admin.main.include.recently')
             </div>
