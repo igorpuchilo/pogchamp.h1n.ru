@@ -26,96 +26,120 @@
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-black-active shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">{!! \App\Shop\Core\ShopApp::get_Instance()->getProperty('store_name') !!}</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand mr-lg-5"
+               href="{{ url('/') }}">{!! \App\Shop\Core\ShopApp::get_Instance()->getProperty('store_name') !!}</a>
+            <form action="{{url('/search/result')}}" method="get" autocomplete="off" class="form-inline">
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-                    @if(isset($menu) && ($menu))
-                        <ul class="navbar-nav mr-auto">
-                            @include('shop.include.menu', ['items'=>$menu->roots()])
-                        </ul>
-                    @endif
-                </ul>
-                <ul class="navbar-nav mr-auto">
-                    <form action="{{url('/search/result')}}" method="get" autocomplete="off" class="form-inline">
-                        <div class="input-group">
-                            <input id="search" name="search" type="text" class="typeahead search"
-                                   data-provide="typeahead"
-                                   placeholder="Live Search....">
-                            <span class="input-group-btn">
+                <input id="search" name="search" type="text" class="typeahead search bg-transparent"
+                       data-provide="typeahead"
+                       placeholder="Live Search....">
+                <span class="input-group-btn">
                                  <button type="submit" class="btn btn-outline bg-transparent">
                                      <i class="fa fa-search"></i>
                                  </button>
                             </span>
-                        </div>
-                    </form>
-                </ul>
-                <!-- Right Side Of Navbar -->
+            </form>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
-                    @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{url('/orderHistory') }}">
-                                    Order History
-                                </a>
-                                @if(Auth::user()->isAdministrator())
-                                    <a class="dropdown-item" href="{{url('/admin/index') }}">
-                                        Admin Panel
-                                    </a>
-                                @endif
-                                <a class="dropdown-item" href="{{route('shop.user.edit')}}">
-                                    Profile Edit
-                                </a>
-
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-
-                        </li>
-                        <li class="nav-item">
-                            <div class="p-1">
-                                <a class="btn btn-outline btn-sm ml-3" href="{{route('shop.cart')}}">
-                                    <i class="fa fa-shopping-cart"></i> Cart
-                                    <span class="badge badge-light">{{$countOrders}}</span>
-                                </a>
-                            </div>
-                        </li>
-                    @endguest
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#">Contact Us</a>
+                    </li>
                 </ul>
+                @guest
+                    <form class="form-inline ml-lg-5 my-2 my-lg-0">
+                        <a class="btn btn-link btn-outline-success nav-link text-dark mr-2"
+                           href="{{ route('login') }}">Sign
+                            In</a>
+                        @if (Route::has('register'))
+
+                            <a class="btn btn-link btn-outline-primary nav-link text-dark my-2 my-sm-0"
+                               href="{{ route('register') }}">{{ __('Register') }}</a>
+                        @endif
+                    </form>
+                @else
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdownMenuLink" class="nav-link text-dark dropdown-toggle" href="#"
+                               role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <i class="fa fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li>
+                                    <a class="dropdown-item" href="{{url('/orderHistory') }}">
+                                        Order History
+                                    </a>
+                                </li>
+
+                                @if(Auth::user()->isAdministrator())
+                                    <li>
+                                        <a class="dropdown-item" href="{{url('/admin/index') }}">
+                                            Admin Panel
+                                        </a>
+                                    </li>
+                                @endif
+                                <li>
+                                    <a class="dropdown-item" href="{{route('shop.user.edit')}}">
+                                        Profile Edit
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('shop.cart')}}">
+                                <i class="fa fa-shopping-cart"></i> Cart
+                                <span class="badge badge-light">{{$countOrders}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                @endguest
             </div>
         </div>
     </nav>
+
+    <div class="text-center">
+        <button class="btn w-100 bg-light text-dark catalog-list-button collapsed" type="button" data-toggle="collapse"
+                data-target="#navbarCatalog"
+                aria-controls="navbarCatalog" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="text-aqua font-weight-bold">Catalog  <i class="fa fa-angle-down"></i></span>
+        </button>
+        <div class="container">
+            <div class="navbar-collapse collapse" id="navbarCatalog" style="">
+                <ul class="catalog-list">
+                    @if(isset($menu) && ($menu))
+                        @include('shop.include.menu', ['items'=>$menu->roots()])
+                    @endif
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <main id="app">
@@ -136,19 +160,21 @@
     </div>
 </footer>
 <!-- Scripts -->
-
-{{--<script src="{{asset('js/jquery.js')}}"></script>--}}
-{{--<script src="{{asset('js/popper.min.js')}}"></script>--}}
-{{--Bootstrap 3,4 Typeahead--}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 {{--Bootstrap 4 JS--}}
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 <script src="{{asset('js/jquery.fancybox.min.js')}}"></script>
+<script src="{{asset('js/jquery.js')}}"></script>
+<script src="{{asset('js/popper.min.js')}}"></script>
+{{--Bootstrap 3,4 Typeahead--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <!-- App -->
 <script src="{{asset('js/app_main.js')}}"></script>
 <script src="{{asset('js/cart_change_qty.js')}}"></script>

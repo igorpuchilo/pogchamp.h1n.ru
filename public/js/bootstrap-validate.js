@@ -449,7 +449,7 @@ var bootstrapValidate = function (t) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! d:\OSPanel\domains\pogchamp.h1n.ru\resources\js\bootstrap-validate.js */"./resources/js/bootstrap-validate.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\pogchamp.h1n.ru\resources\js\bootstrap-validate.js */"./resources/js/bootstrap-validate.js");
 
 
 /***/ })

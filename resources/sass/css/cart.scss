@@ -1,6 +1,14 @@
 .cart {
-  margin-top: 60px;
+    margin-top: 60px;
 }
-.card-img-top{
+
+.card-img-top {
     object-fit: contain;
+}
+
+.dropdown-menu > li > a {
+    color: #000 !important;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

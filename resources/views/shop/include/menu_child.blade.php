@@ -1,11 +1,13 @@
 @foreach($items as $item)
     @if(!($item->hasChildren()))
-        <li><a href="{{route('shop.getcategory',$item->data('alias'))}}" class="dropdown-item">{{$item->title}}</a></li>
+        <li class="d-flex flex-column"><a class="nav-link text-dark text-left p-0"
+                                          href="{{route('shop.getcategory',$item->data('alias'))}}">
+                <i class="fa fa-chevron-right"></i>&nbsp;{{$item->title}}</a></li>
     @else
-        <li class="dropdown-submenu">
-            <a id="dropdownMenu{{$item->id}}" href="{{route('shop.getcategory',$item->data('alias'))}}" role="button" aria-haspopup="true"
-               aria-expanded="false" class="dropdown-item dropdown-toggle">{{$item->title}}</a>
-            <ul aria-labelledby="dropdownMenu{{$item->id}}" class="dropdown-menu border-0 shadow">
+        <li class="d-flex flex-column">
+            <a class="nav-link text-dark text-left p-0" href="{{route('shop.getcategory',$item->data('alias'))}}">
+                <i class="fa fa-chevron-right"></i>&nbsp;{{$item->title}}</a>
+            <ul class="catalog-list-children">
                 @include('shop.include.menu_child', ['items' => $item->children()])
             </ul>
         </li>

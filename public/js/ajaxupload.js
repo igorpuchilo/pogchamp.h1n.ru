@@ -464,7 +464,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! d:\OSPanel\domains\pogchamp.h1n.ru\resources\js\ajaxupload.js */"./resources/js/ajaxupload.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\pogchamp.h1n.ru\resources\js\ajaxupload.js */"./resources/js/ajaxupload.js");
 
 
 /***/ })

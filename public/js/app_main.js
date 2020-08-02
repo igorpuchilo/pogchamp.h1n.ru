@@ -263,7 +263,7 @@ $('.delete').click(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! d:\OSPanel\domains\pogchamp.h1n.ru\resources\js\app_main.js */"./resources/js/app_main.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\pogchamp.h1n.ru\resources\js\app_main.js */"./resources/js/app_main.js");
 
 
 /***/ })

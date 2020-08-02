@@ -773,7 +773,7 @@ function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.itera
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! d:\OSPanel\domains\pogchamp.h1n.ru\resources\js\validator.js */"./resources/js/validator.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\pogchamp.h1n.ru\resources\js\validator.js */"./resources/js/validator.js");
 
 
 /***/ })

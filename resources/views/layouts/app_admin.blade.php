@@ -131,7 +131,7 @@
                 <li class="header">Control Panel</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li><a href="/"><i class="fa fa-home"></i> <span>To Store</span></a></li>
-                <li><a href="{{route('shop.admin.index.index')}}"><i class="fa fa-user"></i> <span>Main</span></a></li>
+                <li><a href="{{route('shop.admin.index.index')}}"><i class="fa fa-pie-chart"></i> <span>Main</span></a></li>
                 <li><a href="{{route('shop.admin.orders.index')}}"><i class="fa fa-shopping-cart"></i>
                         <span>Orders
                             <span class="badge badge-light pull-right">

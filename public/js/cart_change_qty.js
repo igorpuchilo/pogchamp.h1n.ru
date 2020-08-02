@@ -207,7 +207,7 @@ function changePrice(value, name) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! d:\OSPanel\domains\pogchamp.h1n.ru\resources\js\cart_change_qty.js */"./resources/js/cart_change_qty.js");
+module.exports = __webpack_require__(/*! D:\OSPanel\domains\pogchamp.h1n.ru\resources\js\cart_change_qty.js */"./resources/js/cart_change_qty.js");
 
 
 /***/ })

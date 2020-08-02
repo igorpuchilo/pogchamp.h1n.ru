@@ -1,17 +1,19 @@
 @charset "UTF-8";
 /*category list*/
-.product-card{
+.product-card {
 }
+
 .typeahead {
     overflow: hidden;
-    margin-left: 100px;
 }
-.search{
+
+.search {
     border-top: 0 !important;
     border-right: 0 !important;
     border-left: 0 !important;
     outline: none !important;
 }
+
 .list-group {
     margin: 0;
     background-color: #fff;
@@ -56,6 +58,7 @@
     right: 10px;
     top: 10px;
 }
+
 .list-group-item button {
     background-color: transparent;
     border: none;
@@ -106,24 +109,27 @@
     width: -moz-max-content;
     width: max-content;
 }
-.dropdown-submenu>a:after {
+
+.dropdown-submenu > a:after {
     content: "\F0DA";
     float: right;
     border: none;
     font-family: 'FontAwesome';
 }
 
-.dropdown-submenu>.dropdown-menu {
+.dropdown-submenu > .dropdown-menu {
     top: 0;
     left: 100%;
     margin-top: 0px;
     margin-left: 0px;
 }
+
 /*full size*/
 html,
 body {
     min-height: 100%;
 }
+
 header {
     position: relative;
     background-color: #000;
@@ -138,7 +144,7 @@ header {
 
 header:before {
     content: "";
-    background-color: rgba(0,0,0,.8);
+    background-color: rgba(0, 0, 0, .8);
     position: absolute;
     left: 0;
     right: 0;
@@ -161,6 +167,7 @@ main h5 {
     font-weight: 700;
     margin-bottom: 20px;
 }
+
 main h2 {
     font-size: 32px;
 }
@@ -174,6 +181,7 @@ main h2 {
     padding-bottom: 10px;
     border-top: 1px solid #e3e3e3;
 }
+
 .footerapp.footer-fixed {
     position: fixed;
     bottom: 0;
@@ -182,12 +190,15 @@ main h2 {
 .select2-container {
     max-width: 100%;
 }
+
 .dropdown-menu {
     margin: 0 !important;
 }
-.dropdown:hover>.dropdown-menu {
+
+.dropdown:hover > .dropdown-menu {
     display: block !important;
 }
+
 .qty .count {
     color: #000;
     display: inline-block;
@@ -195,24 +206,108 @@ main h2 {
     font-size: 25px;
     font-weight: 700;
     line-height: 30px;
-    padding: 0 2px
-;min-width: 35px;
+    padding: 0 2px;
+    min-width: 35px;
     text-align: center;
 }
-.links{
+
+.links {
     text-decoration: none !important;
     color: black;
     background-color: transparent;
 }
-.input-number{
+
+.input-number {
     border: none;
     width: 35px;
     text-align: center;
-}.input-number-cart{
+}
+
+.input-number-cart {
     border: none;
     width: 35px;
     text-align: center;
-}.product {
+}
+
+.catalog-list {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-left: 0;
+    margin-bottom: 10px;
+    list-style: none;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.catalog-list li {
+    margin-top: 8px;
+}
+
+.btn.catalog-list-button:hover,
+.btn.catalog-list-button:focus,
+.btn.catalog-list-button:focus:hover,
+.btn.catalog-list-button:active {
+    outline: none;
+    box-shadow: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.btn.catalog-list-button:focus,
+.btn.catalog-list-button:focus:hover {
+    background-color: #f8f9fa !important;
+}
+
+.btn.catalog-list-button.collapsed i {
+    transform: rotate(0deg);
+}
+
+.btn.catalog-list-button i {
+    transform: rotate(-180deg);
+    transition: all 0.2s ease-in-out;
+}
+.catalog-list-title {
+    display: block;
+    text-align: left;
+}
+
+.catalog-list-item {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.catalog-list-item i {
+    font-size: 10px;
+    position: relative;
+    top: -2px;
+    color: #ccc;
+}
+
+.catalog-list-children {
+    -webkit-padding-start: 10px;
+            padding-inline-start: 10px;
+    list-style: none;
+}
+
+@media screen and (max-width: 768px) {
+    .catalog-list {
+        flex-direction: column;
+    }
+
+    .catalog-list > li {
+        margin-top: 15px;
+    }
+}
+
+.navbar-nav .dropdown-menu {
+    position: absolute!important;
+}
+.product {
   margin-top: 60px;
 }
 
@@ -417,5 +512,12 @@ main h2 {
 .card-img-top {
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.dropdown-menu > li > a {
+  color: #000 !important;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
