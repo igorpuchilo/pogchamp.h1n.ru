@@ -5,6 +5,12 @@ Route::any('/{url}', 'Shop\MainController@index' )->where('url', '(home|)')
     ->name('shop.home');
 Route::get('/product/{alias}', 'Shop\MainController@getProduct')->name('shop.getproduct');
 Route::get('/category/{alias}', 'Shop\MainController@getCategory')->name('shop.getcategory');
+
+Route::get('/about', 'Shop\MainController@about')->name('shop.about');
+Route::get('/contacts', 'Shop\MainController@contacts')->name('shop.contacts');
+Route::get('/blog', 'Shop\MainController@blogIndex')->name('shop.blog.index');
+Route::get('/blog/{alias}', 'Shop\MainController@getBlog')->name('shop.blog.view');
+
 Route::get('/autocomplete', 'Shop\SearchController@search');
 Route::get('/search/result', 'Shop\SearchController@index');
 //User Routes
@@ -106,6 +112,12 @@ Route::group(['middleware' => ['status', 'auth']], function () {
         Route::get('/trash', 'TrashController@index');
         Route::get('/trash/delete/{id}', 'TrashController@deleteFile')->name('shop.admin.trash.deletefile');
         Route::get('/trash/tmpclear', 'TrashController@deleteAllFiles')->name('shop.admin.trash.deleteallfiles');
+        /// BLOG
+        Route::resource('blog', 'BlogController')->names('shop.admin.blog');
+        Route::match(['get','post'], '/blog/ajax-image-upload','BlogController@ajaxImage');
+        Route::delete('/blog/ajax-remove-image/{filename}','BlogController@deleteImage');
+        Route::get('/blog/delete-blog/{id}','BlogController@deleteBlog')
+            ->name('shop.admin.blog.deleteblog');
         /// SETTINGS
         Route::get('/settings','SettingsController@index')->name('shop.admin.settings.index');
         Route::get('/settings/edit/{id}', 'SettingsController@edit')->name('shop.admin.settings.edit');

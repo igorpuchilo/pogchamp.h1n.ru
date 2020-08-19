@@ -55,7 +55,7 @@
                 </a>
             </div>
             <!-- search form -->
-            <div class="nav-item col-sm-4 col-md-4 pull-left" style = "max-width: 250px; height: 50px; margin-top: 10px;">
+            <div class="nav-item col-sm-4 col-md-4 pull-left" style="max-width: 250px; height: 50px; margin-top: 10px;">
                 <form action="{{url('/admin/search/result')}}" method="get" autocomplete="off" class="margin-r-5">
                     <div class="input-group">
                         <input id="search" name="search" type="text" class="form-control" placeholder="Live Search....">
@@ -131,7 +131,8 @@
                 <li class="header">Control Panel</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li><a href="/"><i class="fa fa-home"></i> <span>To Store</span></a></li>
-                <li><a href="{{route('shop.admin.index.index')}}"><i class="fa fa-pie-chart"></i> <span>Main</span></a></li>
+                <li><a href="{{route('shop.admin.index.index')}}"><i class="fa fa-pie-chart"></i> <span>Main</span></a>
+                </li>
                 <li><a href="{{route('shop.admin.orders.index')}}"><i class="fa fa-shopping-cart"></i>
                         <span>Orders
                             <span class="badge badge-light pull-right">
@@ -197,6 +198,19 @@
                         <li><a href="{{route('shop.admin.filter.attribute-filter')}}">Filter</a></li>
                     </ul>
                 </li>
+
+                <li>
+                <li class="treeview">
+                    <a href="#"><i class="fa fa-rss-square"></i> <span>Blog</span>
+                        <span class="pull-right-container">
+<i class="fa fa-angle-left pull-right"></i>
+</span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('shop.admin.blog.index')}}">Blog List</a></li>
+                        <li><a href="{{route('shop.admin.blog.create')}}">Add New Blog Record</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href="{{route('shop.admin.settings.index')}}">
                         <i class="fa fa-cogs"></i> <span>Store Settings</span>
@@ -258,9 +272,6 @@
 <script src="{{asset('js/ajaxupload.js')}}"></script>
 {{--Font Awesome--}}
 <script src="https://use.fontawesome.com/c11a257dfe.js"></script>
-<!-- Script select2 -->
-@include('shop.admin.product.include.script_related_prod')
-@include('shop.admin.product.include.script_img')
-@include('shop.admin.product.include.script_gallery')
+@yield('scripts')
 </body>
 </html>

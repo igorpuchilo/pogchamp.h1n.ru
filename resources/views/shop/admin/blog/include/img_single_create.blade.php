@@ -17,5 +17,5 @@
     </p>
     <input type="file" id="file" style="display: none"/>
     <input type="hidden" id="file_name"/>
-    <p style="text-align: center"><small>Recommended size: 125x200</small></p>
+    <p style="text-align: center"><small>Recommended size: 900x300</small></p>
 </div>

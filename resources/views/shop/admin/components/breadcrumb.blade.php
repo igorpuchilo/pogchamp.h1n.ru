@@ -27,5 +27,8 @@
     @if (isset($settings))
         <li><a href="{{route('shop.admin.settings.index')}}"><i class="fa fa-cogs"></i>{{$settings}}</a> </li>
     @endif
+    @if (isset($blog))
+        <li><a href="{{route('shop.admin.blog.index')}}"><i class="fa fa-rss-square"></i>{{$blog}}</a> </li>
+    @endif
     <li><i class="active"></i>{{$active}}</li>
 </ol>

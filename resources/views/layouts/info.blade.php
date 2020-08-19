@@ -121,23 +121,6 @@
             </div>
         </div>
     </nav>
-
-    <div class="text-center">
-        <button class="btn w-100 bg-light text-dark catalog-list-button collapsed" type="button" data-toggle="collapse"
-                data-target="#navbarCatalog"
-                aria-controls="navbarCatalog" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="text-aqua font-weight-bold">Catalog  <i class="fa fa-angle-down"></i></span>
-        </button>
-        <div class="container">
-            <div class="navbar-collapse collapse" id="navbarCatalog" style="">
-                <ul class="catalog-list">
-                    @if(isset($menu) && ($menu))
-                        @include('shop.include.menu', ['items'=>$menu->roots()])
-                    @endif
-                </ul>
-            </div>
-        </div>
-    </div>
 </div>
 
 <!-- Content Wrapper. Contains page content -->

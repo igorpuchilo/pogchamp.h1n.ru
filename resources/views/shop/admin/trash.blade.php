@@ -14,16 +14,16 @@
                 <div class="box">
                     <div class="box-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                <tr>
-                                    <th class="text-center">@sortablelink('id')</th>
-                                    <th class="text-center">@sortablelink('file','FileName')</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @if(!$files->isEmpty())
+                            @if(!$files->isEmpty())
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center">@sortablelink('id')</th>
+                                        <th class="text-center">@sortablelink('file','FileName')</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
                                     @foreach($files as $file)
                                         <tr>
                                             <td>{{$file->id}}</td>
@@ -40,14 +40,12 @@
                                             Delete All Tmp Files
                                         </a>
                                     </div>
-                                @else
-                                    <tr>
-                                        <td class="text-center" colspan="3"><h2>No Files</h2></td>
-                                    </tr>
-                                @endif
-                                </tbody>
-                            </table>
 
+                                    </tbody>
+                                </table>
+                            @else
+                                <h2 class="text-center">No Files</h2>
+                            @endif
                         </div>
                         <div class="text-center">
                             {!! $files->appends(\Request::except('page'))->render() !!}

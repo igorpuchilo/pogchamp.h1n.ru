@@ -223,7 +223,7 @@ class ProductController extends AdminBaseController
                 return redirect()
                     ->back()
                     ->withInput()
-                    ->with(['success' => "Product[$id] was deleted for DataBase"]);
+                    ->with(['success' => "Product[$id] was deleted from DataBase"]);
             } else {
                 return back()->withErrors(['msg' => 'Error on save'])->withInput();
             }

@@ -114,5 +114,10 @@
         </div>
         <div class='hidden' data-name='{{$id}}'></div>
     </section>
-
+@endsection
+@section('scripts')
+    <!-- Script select2 -->
+    @include('shop.admin.product.include.script_related_prod')
+    @include('shop.admin.product.include.script_img')
+    @include('shop.admin.product.include.script_gallery')
 @endsection

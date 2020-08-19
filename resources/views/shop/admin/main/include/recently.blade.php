@@ -18,10 +18,10 @@
                         <li class="item">
                             <div class="product-img">
                                 @if(!empty($product->img))
-                                    <img src="{{asset('storage/uploads/single/'.$product->img)}}" alt="Image not found"
+                                    <img class="card-img-top" src="{{asset('storage/uploads/single/'.$product->img)}}" alt="Image not found"
                                          onerror="this.src = '{{asset("storage/images/no_image.jpg")}}';">
                                 @else
-                                    <img src="{{asset('storage/images/no_image.jpg')}}" alt="Image not found">
+                                    <img class="card-img-top" src="{{asset('storage/images/no_image.jpg')}}" alt="Image not found">
                                 @endif
                             </div>
                             <div class="product-info">

@@ -20,6 +20,7 @@ class MainController extends Controller
     private $filterAttrsRepository;
     private $filterGroupRepository;
     private $productOrdersRepository;
+    private $blogRepository;
 
 
     public function __construct()
@@ -33,6 +34,7 @@ class MainController extends Controller
         $this->filterAttrsRepository = app(\App\Repositories\Admin\FilterAttrsRepository::class);
         $this->filterGroupRepository = app(\App\Repositories\Admin\FilterGroupRepository::class);
         $this->productOrdersRepository = app(\App\Repositories\Admin\ProductOrdersRepository::class);
+        $this->blogRepository = app(\App\Repositories\Admin\BlogRepository::class);
     }
 
 
@@ -113,5 +115,46 @@ class MainController extends Controller
         return view('shop.category', ['menu' => $menu], compact('$user_id', 'curr', 'products',
             'category', 'attributes', 'groupsfilter','attrs','sortBy'));
     }
-
+    public function contacts()
+    {
+        MetaTag::setTags(['title' => \App\Shop\Core\ShopApp::get_Instance()->getProperty('store_name_tab')]);
+        if (Auth::check()) {
+            $id = \Auth::user()->id;
+            $countOrders = $this->mainRepository->getUserCountOrders($id);
+            return view('shop.contacts', compact('countOrders'));
+        }
+        return view('shop.contacts');
+    }
+    public function about()
+    {
+        MetaTag::setTags(['title' => \App\Shop\Core\ShopApp::get_Instance()->getProperty('store_name_tab')]);
+        if (Auth::check()) {
+            $id = \Auth::user()->id;
+            $countOrders = $this->mainRepository->getUserCountOrders($id);
+            return view('shop.about', compact('countOrders'));
+        }
+        return view('shop.about');
+    }
+    public function blogIndex()
+    {
+        MetaTag::setTags(['title' => \App\Shop\Core\ShopApp::get_Instance()->getProperty('store_name_tab')]);
+        $blog = $this->blogRepository->getAllRecords(4);
+        if (Auth::check()) {
+            $id = \Auth::user()->id;
+            $countOrders = $this->mainRepository->getUserCountOrders($id);
+            return view('shop.blog.index', compact('countOrders','blog'));
+        }
+        return view('shop.blog.index',compact('blog'));
+    }
+    public function getBlog($alias)
+    {
+        MetaTag::setTags(['title' => \App\Shop\Core\ShopApp::get_Instance()->getProperty('store_name_tab')]);
+        $blog = $this->blogRepository->getBlogByAlias($alias);
+        if (Auth::check()) {
+            $id = \Auth::user()->id;
+            $countOrders = $this->mainRepository->getUserCountOrders($id);
+            return view('shop.blog.view', compact('countOrders','blog'));
+        }
+        return view('shop.blog.view',compact('blog'));
+    }
 }

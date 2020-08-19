@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\Admin\Blog;
 use App\Models\Admin\Category;
 use App\Models\Admin\Product;
 use App\Observers\AdminCategoryObserver;
 use App\Observers\AdminProductObserver;
+use App\Observers\AdminBlogObserver;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -32,5 +34,6 @@ class AppServiceProvider extends ServiceProvider
         date_default_timezone_set('Europe/Minsk');
         Category::observe(AdminCategoryObserver::class);
         Product::observe(AdminProductObserver::class);
+        Blog::observe(AdminBlogObserver::class);
     }
 }
