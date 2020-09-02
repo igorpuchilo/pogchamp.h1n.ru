@@ -66,7 +66,7 @@
                                             </b>
                                             <input id="quant[{{$product->id}}]" value="{{$product->price}}" hidden>
                                             @if (Auth::check())
-                                                <button type="submit" class="btn links" style="float: right;">
+                                                <button type="submit" id="add-cart" class="btn links" style="float: right;">
                                                     <i class="fa fa-shopping-cart fa-lg"></i>
                                                 </button>
                                             @else

@@ -1,5 +1,7 @@
 <?php
 
+use Spatie\Sitemap\SitemapGenerator;
+
 //Guest
 Route::any('/{url}', 'Shop\MainController@index' )->where('url', '(home|)')
     ->name('shop.home');
@@ -43,6 +45,11 @@ Route::group(['middleware' => ['status', 'auth']], function () {
     ];
 
     Route::group($groupData, function () {
+        //Site-map generate
+        Route::get('sitemap',function (){
+            SitemapGenerator::create('http://pogchamp.h1n.ru/')->writeToFile('sitemap.xml');
+            return 'sitemap created';
+        });
         //Main page
         Route::resource('index', 'MainController')->names('shop.admin.index');
         ///ORDERS////

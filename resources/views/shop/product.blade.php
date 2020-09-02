@@ -5,6 +5,7 @@
     <div class="product">
         <div class="container">
             {{ Breadcrumbs::render('Product', $product, $category) }}
+            @include('shop.admin.components.result_messages')
             <div class="row">
                 <div class="col-md-5">
 
@@ -109,9 +110,6 @@
                     <h1>{{$product->title}}</h1>
                     {{-- Product desc--}}
                     {!! $product->content !!}
-
-
-                    @include('shop.admin.components.result_messages')
                 </div>
             </div>
         </div>

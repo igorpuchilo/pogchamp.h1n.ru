@@ -1,5 +1,7 @@
 @extends('layouts.app_auth')
-
+@section('scripts')
+    {!! NoCaptcha::renderJs() !!}
+@endsection
 @section('content')
     <section class="content m-5">
         <div class="container">
@@ -9,7 +11,7 @@
                         <div class="card-header">{{ __('Register') }}</div>
 
                         <div class="card-body">
-                            <form method="POST" action="{{ route('register') }}">
+                            <form id="reg" method="POST" action="{{ route('register') }}">
                                 @csrf
 
                                 <div class="form-group row">
@@ -72,10 +74,29 @@
                                                name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                 </div>
-
+                                {{--                                <div class="form-group row">--}}
+                                {{--                                    <div class="col-md-6 offset-md-4">--}}
+                                {{--                                        <div class="g-recaptcha" data-sitekey="{{env('NOCAPTCHA_SITEKEY')}}"></div>--}}
+                                {{--                                        @if($errors->has('g-recaptcha-response'))--}}
+                                {{--                                            <span class="invalid-feedback" style="display: block">--}}
+                                {{--                                                    <strong>{{$errors->first('g-captcha-response')}}</strong>--}}
+                                {{--                                            </span>--}}
+                                {{--                                        @endif--}}
+                                {{--                                    </div>--}}
+                                {{--                                </div>--}}
+                                <div class="form-group row">
+                                    <div class="col-md-6 offset-md-4">
+                                        {!! NoCaptcha::display() !!}
+                                        @error('g-recaptcha-response')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary g-recaptcha">
                                             {{ __('Register') }}
                                         </button>
                                     </div>

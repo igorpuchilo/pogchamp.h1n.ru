@@ -17,7 +17,7 @@
         $host = $_SERVER['HTTP_HOST'];
     }
 
-    $allowed_hosts = 'http://lara.net/index.php';
+    $allowed_hosts = 'http://pogchamp.h1n.ru/index.php';
 
     $app_path = preg_replace("#[^/]+$#",'',$allowed_hosts);
 
